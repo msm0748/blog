@@ -1,0 +1,122 @@
+<style>
+  .custom .container {
+    display: flex;
+    width: 100%;
+    height: 500px;
+    background-color: skyblue;
+  }
+  .custom .item {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: #000;
+  }
+  .custom .item1 {
+    background-color: red;
+  }
+  .custom .item2 {
+    background-color: orange;
+  }
+  .custom .item3 {
+    background-color: yellow;
+  }
+  .custom .item4 {
+    background-color: green;
+  }
+  .custom .item5 {
+    background-color: blueviolet;
+  }
+
+  .custom [type='radio']:checked,
+  .custom [type='radio']:not(:checked) {
+    position: absolute;
+    left: -9999px;
+  }
+  .custom [type='radio']:checked + label,
+  .custom [type='radio']:not(:checked) + label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+  }
+  .custom [type='radio']:checked + label:before,
+  .custom [type='radio']:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+  }
+  .custom [type='radio']:checked + label:after,
+  .custom [type='radio']:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: rgb(93, 176, 215);
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  .custom [type='radio']:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  .custom [type='radio']:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  .custom [type='radio']:not(:checked) + label {
+    color: rgb(189, 189, 189);
+  }
+
+  .custom .style {
+    margin-bottom: 20px;
+  }
+  .custom .style span + span {
+    margin-left: 5px;
+  }
+</style>
+<div class="custom ex1">
+  <div class="style">
+    <span>display: </span>
+    <span>
+      <input type="radio" id="block" name="flex" value="block" checked />
+      <label for="block">block;</label>
+    </span>
+    <span>
+      <input type="radio" id="flex" name="flex" value="flex" />
+      <label for="flex">flex;</label>
+    </span>
+  </div>
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+  </div>
+</div>
+
+<script>
+  const custom = document.querySelector('.custom.ex1');
+  const container = custom.querySelector('.container');
+  const radioBtn = custom.querySelectorAll('input');
+  radioBtn.forEach((el) => {
+    el.addEventListener('click', () => {
+      const value = custom.querySelector('input[name="flex"]:checked').value;
+      container.style.display = value;
+    });
+  });
+</script>

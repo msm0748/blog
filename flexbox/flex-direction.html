@@ -1,0 +1,58 @@
+<style>
+  .custom.ex2 .container {
+    display: flex;
+  }
+  .custom.ex2 .style {
+    position: relative;
+  }
+  .custom.ex2 .style .value {
+    margin-left: 115px;
+  }
+  .custom.ex2 .style .attr {
+    position: absolute;
+  }
+</style>
+<div class="custom ex2">
+  <div class="style">
+    <div>display: flex;</div>
+    <div class="attr">flex-direction:</div>
+    <div class="value">
+      <span>
+        <input type="radio" id="row" name="flex-direction" value="row" checked />
+        <label for="row">row;</label>
+      </span>
+      <span>
+        <input type="radio" id="row-reverse" name="flex-direction" value="row-reverse" />
+        <label for="row-reverse">row-reverse;</label>
+      </span>
+      <span>
+        <input type="radio" id="column" name="flex-direction" value="column" />
+        <label for="column">column;</label>
+      </span>
+      <span>
+        <input type="radio" id="column-reverse" name="flex-direction" value="column-reverse" />
+        <label for="column-reverse">column-reverse;</label>
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+  </div>
+</div>
+
+<script>
+  const custom2 = document.querySelector('.custom.ex2');
+  const container2 = custom2.querySelector('.container');
+  const radioBtn2 = custom2.querySelectorAll('input');
+  radioBtn2.forEach((el) => {
+    el.addEventListener('click', () => {
+      const value = custom2.querySelector('input[name="flex-direction"]:checked').value;
+      container2.style.flexDirection = value;
+    });
+  });
+</script>

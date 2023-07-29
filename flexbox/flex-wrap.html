@@ -1,0 +1,104 @@
+<style>
+  .custom.ex5 .container {
+    display: flex;
+    position: relative;
+  }
+  .custom.ex5 .container .resize {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #000;
+  }
+  .custom.ex5 .container .resize::before {
+    position: absolute;
+    top: -27px;
+    right: -5px;
+    content: '드래그바 ↓';
+    z-index: -1;
+    width: max-content;
+    color: #874747;
+  }
+  .custom.ex5 .container .resize:hover {
+    cursor: col-resize;
+  }
+
+  .custom.ex5 .style {
+    position: relative;
+  }
+  .custom.ex5 .style .value {
+    margin-left: 85px;
+  }
+  .custom.ex5 .style .attr {
+    position: absolute;
+  }
+</style>
+<div class="custom ex5">
+  <div class="style">
+    <div>display: flex;</div>
+    <div class="attr">flex-wrap:</div>
+    <div class="value">
+      <span>
+        <input type="radio" id="nowrap" name="flex-wrap" value="nowrap" checked />
+        <label for="nowrap">nowrap;</label>
+      </span>
+      <span>
+        <input type="radio" id="wrap" name="flex-wrap" value="wrap" />
+        <label for="wrap">wrap;</label>
+      </span>
+      <span>
+        <input type="radio" id="wrap-reverse" name="flex-wrap" value="wrap-reverse" />
+        <label for="wrap-reverse">wrap-reverse;</label>
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="resize"></div>
+  </div>
+</div>
+
+<script>
+  const custom5 = document.querySelector('.custom.ex5');
+  const resize = custom5.querySelector('.resize');
+  const container5 = custom5.querySelector('.container');
+  const radioBtn5 = custom5.querySelectorAll('input');
+  let isTouch = false;
+  let sX = 0;
+  let cX = 0;
+  let diffX = 0;
+
+  container5.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+  });
+
+  resize.addEventListener('mousedown', (e) => {
+    sX = e.clientX + diffX;
+    isTouch = true;
+  });
+
+  custom5.addEventListener('mousemove', (e) => {
+    if (isTouch === true) {
+      cX = e.clientX;
+      diffX = sX - cX;
+      container5.style.width = `calc(100% - ${diffX}px)`;
+    }
+  });
+
+  document.addEventListener('mouseup', (e) => {
+    isTouch = false;
+  });
+
+  radioBtn5.forEach((el) => {
+    el.addEventListener('click', () => {
+      const value = custom5.querySelector('input[name="flex-wrap"]:checked').value;
+      container5.style.flexWrap = value;
+    });
+  });
+</script>

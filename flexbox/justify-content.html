@@ -1,0 +1,67 @@
+<style>
+  .custom.ex3 .container {
+    display: flex;
+    height: 150px;
+  }
+  .custom.ex3 .style {
+    position: relative;
+  }
+  .custom.ex3 .style .value {
+    margin-left: 120px;
+  }
+  .custom.ex3 .style .attr {
+    position: absolute;
+  }
+</style>
+<div class="custom ex3">
+  <div class="style">
+    <div>display: flex;</div>
+    <div class="attr">justify-content:</div>
+    <div class="value">
+      <span>
+        <input type="radio" id="flex-start" name="justify-content" value="flex-start" checked />
+        <label for="flex-start">flex-start;</label>
+      </span>
+      <span>
+        <input type="radio" id="flex-end" name="justify-content" value="flex-end" />
+        <label for="flex-end">flex-end;</label>
+      </span>
+      <span>
+        <input type="radio" id="center" name="justify-content" value="center" />
+        <label for="center">center;</label>
+      </span>
+      <span>
+        <input type="radio" id="space-between" name="justify-content" value="space-between" />
+        <label for="space-between">space-between;</label>
+      </span>
+      <span>
+        <input type="radio" id="space-around" name="justify-content" value="space-around" />
+        <label for="space-around">space-around;</label>
+      </span>
+      <span>
+        <input type="radio" id="space-evenly" name="justify-content" value="space-evenly" />
+        <label for="space-evenly">space-evenly;</label>
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+  </div>
+</div>
+
+<script>
+  const custom3 = document.querySelector('.custom.ex3');
+  const container3 = custom3.querySelector('.container');
+  const radioBtn3 = custom3.querySelectorAll('input');
+  radioBtn3.forEach((el) => {
+    el.addEventListener('click', () => {
+      const value = custom3.querySelector('input[name="justify-content"]:checked').value;
+      container3.style.justifyContent = value;
+    });
+  });
+</script>

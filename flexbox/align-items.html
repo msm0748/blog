@@ -1,0 +1,75 @@
+<style>
+  .custom.ex4 .container {
+    display: flex;
+    height: 300px;
+  }
+  .custom.ex4 .item {
+    padding: 30px;
+    width: auto;
+    height: auto;
+  }
+  .custom.ex4 .item3 {
+    font-size: 40px;
+  }
+  .custom.ex4 .item5 {
+    font-size: 30px;
+  }
+
+  .custom.ex4 .style {
+    position: relative;
+  }
+  .custom.ex4 .style .value {
+    margin-left: 100px;
+  }
+  .custom.ex4 .style .attr {
+    position: absolute;
+  }
+</style>
+<div class="custom ex4">
+  <div class="style">
+    <div>display: flex;</div>
+    <div class="attr">align-items:</div>
+    <div class="value">
+      <span>
+        <input type="radio" id="ai-stretch" name="align-items" value="stretch" checked />
+        <label for="ai-stretch">stretch;</label>
+      </span>
+      <span>
+        <input type="radio" id="ai-flex-start" name="align-items" value="flex-start" />
+        <label for="ai-flex-start">flex-start;</label>
+      </span>
+      <span>
+        <input type="radio" id="ai-flex-end" name="align-items" value="flex-end" />
+        <label for="ai-flex-end">flex-end;</label>
+      </span>
+      <span>
+        <input type="radio" id="ai-center" name="align-items" value="center" />
+        <label for="ai-center">center;</label>
+      </span>
+      <span>
+        <input type="radio" id="ai-baseline" name="align-items" value="baseline" />
+        <label for="ai-baseline">baseline;</label>
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+  </div>
+</div>
+
+<script>
+  const custom4 = document.querySelector('.custom.ex4');
+  const container4 = custom4.querySelector('.container');
+  const radioBtn4 = custom4.querySelectorAll('input');
+  radioBtn4.forEach((el) => {
+    el.addEventListener('click', () => {
+      const value = custom4.querySelector('input[name="align-items"]:checked').value;
+      container4.style.alignItems = value;
+    });
+  });
+</script>

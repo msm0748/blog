@@ -1,0 +1,246 @@
+<style>
+  .custom.ex7 .container {
+    display: flex;
+    position: relative;
+    height: 600px;
+  }
+  .custom.ex7 .container .item {
+    width: auto;
+    height: auto;
+    line-height: normal;
+    padding: 20px 30px;
+  }
+  .custom.ex7 .container .resize {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #000;
+  }
+  .custom.ex7 .container .resize::before {
+    position: absolute;
+    top: -27px;
+    right: -5px;
+    content: '드래그바 ↓';
+    z-index: -1;
+    width: max-content;
+    color: #874747;
+  }
+  .custom.ex7 .container .resize:hover {
+    cursor: col-resize;
+  }
+  .custom.ex7 [type='radio']:not(:checked) + label {
+    color: rgb(170, 170, 170);
+  }
+  .custom.ex7 .style {
+    position: relative;
+    font-size: 14px;
+  }
+  .custom.ex7 .style li {
+    display: flex;
+    column-gap: 10px;
+    border-top: 1px solid #a2a2a2;
+    padding: 0 5px;
+  }
+  .custom.ex7 .style li:hover {
+    background-color: #ffd6d6;
+  }
+  .custom.ex7 .style .value {
+    flex: 1;
+  }
+  .custom.ex7 .style .attr {
+    font-weight: bold;
+  }
+</style>
+
+<div class="custom ex7">
+  <div class="style">
+    <div style="padding-left: 5px"><span style="font-weight: bold">display:</span> flex;</div>
+    <ul>
+      <li>
+        <div class="attr">flex-direction:</div>
+        <div class="value">
+          <span>
+            <input type="radio" id="row2" name="flex-direction2" value="row" checked />
+            <label for="row2">row;</label>
+          </span>
+          <span>
+            <input type="radio" id="row-reverse2" name="flex-direction2" value="row-reverse" />
+            <label for="row-reverse2">row-reverse;</label>
+          </span>
+          <span>
+            <input type="radio" id="column2" name="flex-direction2" value="column" />
+            <label for="column2">column;</label>
+          </span>
+          <span>
+            <input type="radio" id="column-reverse2" name="flex-direction2" value="column-reverse" />
+            <label for="column-reverse2">column-reverse;</label>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="attr">justify-content:</div>
+        <div class="value">
+          <span>
+            <input type="radio" id="flex-start2" name="justify-content2" value="flex-start" checked />
+            <label for="flex-start2">flex-start;</label>
+          </span>
+          <span>
+            <input type="radio" id="flex-end2" name="justify-content2" value="flex-end" />
+            <label for="flex-end2">flex-end;</label>
+          </span>
+          <span>
+            <input type="radio" id="center2" name="justify-content2" value="center" />
+            <label for="center2">center;</label>
+          </span>
+          <span>
+            <input type="radio" id="space-between2" name="justify-content2" value="space-between" />
+            <label for="space-between2">space-between;</label>
+          </span>
+          <span>
+            <input type="radio" id="space-around2" name="justify-content2" value="space-around" />
+            <label for="space-around2">space-around;</label>
+          </span>
+          <span>
+            <input type="radio" id="space-evenly2" name="justify-content2" value="space-evenly" />
+            <label for="space-evenly2">space-evenly;</label>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="attr">align-items:</div>
+        <div class="value">
+          <span>
+            <input type="radio" id="ai-stretch2" name="align-items2" value="stretch" checked />
+            <label for="ai-stretch2">stretch;</label>
+          </span>
+          <span>
+            <input type="radio" id="ai-flex-start2" name="align-items2" value="flex-start" />
+            <label for="ai-flex-start2">flex-start;</label>
+          </span>
+          <span>
+            <input type="radio" id="ai-flex-end2" name="align-items2" value="flex-end" />
+            <label for="ai-flex-end2">flex-end;</label>
+          </span>
+          <span>
+            <input type="radio" id="ai-center2" name="align-items2" value="center" />
+            <label for="ai-center2">center;</label>
+          </span>
+          <span>
+            <input type="radio" id="ai-baseline2" name="align-items2" value="baseline" />
+            <label for="ai-baseline2">baseline;</label>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="attr">flex-wrap:</div>
+        <div class="value">
+          <span>
+            <input type="radio" id="nowrap2" name="flex-wrap2" value="nowrap" checked />
+            <label for="nowrap2">nowrap;</label>
+          </span>
+          <span>
+            <input type="radio" id="wrap2" name="flex-wrap2" value="wrap" />
+            <label for="wrap2">wrap;</label>
+          </span>
+          <span>
+            <input type="radio" id="wrap-reverse2" name="flex-wrap2" value="wrap-reverse" />
+            <label for="wrap-reverse2">wrap-reverse;</label>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="attr">align-content:</div>
+        <div class="value">
+          <span>
+            <input type="radio" id="ac-stretch2" name="align-content2" value="stretch" checked />
+            <label for="ac-stretch2">stretch;</label>
+          </span>
+          <span>
+            <input type="radio" id="ac-flex-start2" name="align-content2" value="flex-start" />
+            <label for="ac-flex-start2">flex-start;</label>
+          </span>
+          <span>
+            <input type="radio" id="ac-flex-end2" name="align-content2" value="flex-end" />
+            <label for="ac-flex-end2">flex-end;</label>
+          </span>
+          <span>
+            <input type="radio" id="ac-center2" name="align-content2" value="center" />
+            <label for="ac-center2">center;</label>
+          </span>
+          <span>
+            <input type="radio" id="ac-space-between2" name="align-content2" value="space-between" />
+            <label for="ac-space-between2">space-between;</label>
+          </span>
+          <span>
+            <input type="radio" id="ac-space-around2" name="align-content2" value="space-around" />
+            <label for="ac-space-around2">space-around;</label>
+          </span>
+          <span>
+            <input type="radio" id="ac-space-evenly2" name="align-content2" value="space-evenly" />
+            <label for="ac-space-evenly2">space-evenly;</label>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="resize"></div>
+  </div>
+</div>
+
+<script>
+  const custom7 = document.querySelector('.custom.ex7');
+  const container7 = custom7.querySelector('.container');
+  const radioBtn7 = custom7.querySelectorAll('input');
+
+  const resize3 = custom7.querySelector('.resize');
+  let isTouch3 = false;
+  let sX3 = 0;
+  let cX3 = 0;
+  let diffX3 = 0;
+
+  container7.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+  });
+
+  resize3.addEventListener('mousedown', (e) => {
+    sX3 = e.clientX + diffX3;
+    isTouch3 = true;
+  });
+
+  custom7.addEventListener('mousemove', (e) => {
+    if (isTouch3 === true) {
+      cX = e.clientX;
+      diffX3 = sX3 - cX;
+      container7.style.width = `calc(100% - ${diffX3}px)`;
+    }
+  });
+
+  document.addEventListener('mouseup', (e) => {
+    isTouch3 = false;
+  });
+
+  radioBtn7.forEach((el) => {
+    el.addEventListener('click', () => {
+      const value = custom7.querySelector('input[name="flex-direction2"]:checked').value;
+      const value2 = custom7.querySelector('input[name="justify-content2"]:checked').value;
+      const value3 = custom7.querySelector('input[name="align-items2"]:checked').value;
+      const value4 = custom7.querySelector('input[name="flex-wrap2"]:checked').value;
+      const value5 = custom7.querySelector('input[name="align-content2"]:checked').value;
+
+      container7.style.flexDirection = value;
+      container7.style.justifyContent = value2;
+      container7.style.alignItems = value3;
+      container7.style.flexWrap = value4;
+      container7.style.alignContent = value5;
+    });
+  });
+</script>

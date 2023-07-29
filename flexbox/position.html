@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      header {
+        background-color: gainsboro;
+        padding: 0px 20px;
+      }
+      header .wrap {
+        position: relative;
+        line-height: 50px;
+        text-align: center;
+      }
+      header .wrap .logo,
+      header .wrap .login {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+      }
+      header .wrap .logo {
+        left: 0;
+      }
+      header .wrap .login {
+        right: 0;
+      }
+      header .wrap nav {
+        display: inline-block;
+      }
+      header .wrap .menus li {
+        display: inline-block;
+        margin: 0 10px;
+      }
+      header a {
+        color: #000;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="logo"><a href="#">로고</a></div>
+        <nav>
+          <ul class="menus">
+            <li><a href="#">MENU1</a></li>
+            <li><a href="#">MENU2</a></li>
+            <li><a href="#">MENU3</a></li>
+          </ul>
+        </nav>
+        <div class="login">
+          <a href="#">로그인</a>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>

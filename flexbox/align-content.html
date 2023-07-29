@@ -1,0 +1,128 @@
+<style>
+  .custom.ex6 .container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .custom.ex6 .container .resize {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #000;
+  }
+  .custom.ex6 .container .resize::before {
+    position: absolute;
+    top: -27px;
+    right: -5px;
+    content: '드래그바 ↓';
+    z-index: -1;
+    width: max-content;
+    color: #874747;
+  }
+  .custom.ex6 .container .resize:hover {
+    cursor: col-resize;
+  }
+  .custom.ex6 .item {
+    padding: 30px;
+    width: auto;
+    height: auto;
+  }
+
+  .custom.ex6 .style {
+    position: relative;
+  }
+  .custom.ex6 .style .value {
+    margin-left: 110px;
+  }
+  .custom.ex6 .style .attr {
+    position: absolute;
+  }
+</style>
+<div class="custom ex6">
+  <div class="style">
+    <div>display: flex;</div>
+    <div>flex-wrap: wrap;</div>
+    <div class="attr">align-content:</div>
+    <div class="value">
+      <span>
+        <input type="radio" id="ac-stretch" name="align-content" value="stretch" checked />
+        <label for="ac-stretch">stretch;</label>
+      </span>
+      <span>
+        <input type="radio" id="ac-flex-start" name="align-content" value="flex-start" />
+        <label for="ac-flex-start">flex-start;</label>
+      </span>
+      <span>
+        <input type="radio" id="ac-flex-end" name="align-content" value="flex-end" />
+        <label for="ac-flex-end">flex-end;</label>
+      </span>
+      <span>
+        <input type="radio" id="ac-center" name="align-content" value="center" />
+        <label for="ac-center">center;</label>
+      </span>
+      <span>
+        <input type="radio" id="ac-space-between" name="align-content" value="space-between" />
+        <label for="ac-space-between">space-between;</label>
+      </span>
+      <span>
+        <input type="radio" id="ac-space-around" name="align-content" value="space-around" />
+        <label for="ac-space-around">space-around;</label>
+      </span>
+      <span>
+        <input type="radio" id="ac-space-evenly" name="align-content" value="space-evenly" />
+        <label for="ac-space-evenly">space-evenly;</label>
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="resize"></div>
+  </div>
+</div>
+
+<script>
+  const custom6 = document.querySelector('.custom.ex6');
+  const resize2 = custom6.querySelector('.resize');
+  const container6 = custom6.querySelector('.container');
+  const radioBtn6 = custom6.querySelectorAll('input');
+  let isTouch2 = false;
+  let sX2 = 0;
+  let cX2 = 0;
+  let diffX2 = 450;
+  container6.style.width = `calc(100% - ${diffX2}px)`;
+
+  container6.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+  });
+
+  resize2.addEventListener('mousedown', (e) => {
+    sX2 = e.clientX + diffX2;
+    isTouch2 = true;
+  });
+
+  custom6.addEventListener('mousemove', (e) => {
+    if (isTouch2 === true) {
+      cX2 = e.clientX;
+      diffX2 = sX2 - cX2;
+      container6.style.width = `calc(100% - ${diffX2}px)`;
+    }
+  });
+
+  document.addEventListener('mouseup', (e) => {
+    isTouch2 = false;
+  });
+
+  radioBtn6.forEach((el) => {
+    el.addEventListener('click', () => {
+      const value = custom6.querySelector('input[name="align-content"]:checked').value;
+      container6.style.alignContent = value;
+    });
+  });
+</script>
