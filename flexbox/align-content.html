@@ -112,6 +112,7 @@
     if (isTouch2 === true) {
       cX2 = e.clientX;
       diffX2 = sX2 - cX2;
+      if (diffX2 < 0) return (diffX2 = 0);
       container6.style.width = `calc(100% - ${diffX2}px)`;
     }
   });

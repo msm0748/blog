@@ -89,6 +89,7 @@
     if (isTouch === true) {
       cX = e.clientX;
       diffX = sX - cX;
+      if (diffX < 0) return (diffX = 0);
       container5.style.width = `calc(100% - ${diffX}px)`;
     }
   });
