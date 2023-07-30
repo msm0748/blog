@@ -1,4 +1,33 @@
 <style>
+  .custom .container {
+    width: 100%;
+    height: 500px;
+    background-color: skyblue;
+  }
+  .custom .item {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: #000;
+  }
+  .custom .item1 {
+    background-color: red;
+  }
+  .custom .item2 {
+    background-color: orange;
+  }
+  .custom .item3 {
+    background-color: yellow;
+  }
+  .custom .item4 {
+    background-color: green;
+  }
+  .custom .item5 {
+    background-color: blueviolet;
+  }
+</style>
+<style>
   .custom.ex2 .container {
     display: flex;
   }
@@ -10,6 +39,210 @@
   }
   .custom.ex2 .style .attr {
     position: absolute;
+  }
+
+  .custom.ex2 .wrap {
+    position: relative;
+    padding: 40px;
+  }
+
+  .custom.ex2 .axis {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .custom.ex2 .axis .arrow,
+  .custom.ex2 .axis .arrow {
+    background-color: #1971c2;
+    position: relative;
+  }
+  .custom.ex2 .axis .main-axis {
+    color: #1971c2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: -8px;
+    left: 40px;
+  }
+  .custom.ex2 .axis .main-axis .arrow {
+    width: 200px;
+    height: 2px;
+  }
+  .custom.ex2 .axis .main-axis span {
+    display: block;
+  }
+
+  .custom.ex2 .axis .main-axis .arrow::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: '';
+    width: 10px; /* 사이즈 */
+    height: 10px; /* 사이즈 */
+    border-top: 2px solid #1971c2; /* 선 두께 */
+    border-right: 2px solid #1971c2; /* 선 두께 */
+    transform: rotate(45deg); /* 각도 */
+  }
+
+  .custom.ex2 .axis .cross-axis {
+    color: #1971c2;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    left: -6px;
+  }
+
+  .custom.ex2 .axis .cross-axis .arrow {
+    width: 2px;
+    height: 200px;
+  }
+
+  .custom.ex2 .axis .cross-axis span {
+    display: block;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    transform: scale(-1);
+  }
+
+  .custom.ex2 .axis .cross-axis .arrow::after {
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #1971c2;
+    border-right: 2px solid #1971c2;
+    transform: rotate(135deg);
+  }
+
+  /* row-reverse 방향 */
+  .custom.ex2 .row-reverse .axis .main-axis {
+    left: auto;
+    right: 40px;
+  }
+  .custom.ex2 .row-reverse .axis .main-axis .arrow {
+    transform: scaleX(-1);
+  }
+  .custom.ex2 .row-reverse .axis .cross-axis {
+    left: auto;
+    right: -6px;
+    transform: scaleX(-1);
+  }
+  .custom.ex2 .row-reverse .axis .cross-axis span {
+    transform: scaleX(-1);
+  }
+
+  /* column 방향 */
+  .custom.ex2 .column .axis .main-axis {
+    flex-direction: row;
+    top: 40px;
+    left: -6px;
+  }
+  .custom.ex2 .column .axis .main-axis .arrow {
+    width: 2px;
+    height: 200px;
+  }
+
+  .custom.ex2 .column .axis .main-axis span {
+    display: block;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    transform: scale(-1);
+  }
+
+  .custom.ex2 .column .axis .main-axis .arrow::after {
+    top: auto;
+    bottom: 0;
+    left: -4px;
+    transform: rotate(135deg);
+  }
+
+  .custom.ex2 .column .axis .cross-axis {
+    flex-direction: column;
+    top: -8px;
+    left: 40px;
+  }
+
+  .custom.ex2 .column .axis .cross-axis .arrow {
+    width: 200px;
+    height: 2px;
+  }
+
+  .custom.ex2 .column .axis .cross-axis span {
+    writing-mode: initial;
+    text-orientation: sideways;
+    transform: initial;
+  }
+
+  .custom.ex2 .column .axis .cross-axis .arrow::after {
+    transform: rotate(45deg);
+    top: 0;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  /* column-reverse 방향 */
+  .custom.ex2 .column-reverse .axis .main-axis {
+    flex-direction: row;
+    top: auto;
+    bottom: 40px;
+    left: -6px;
+    transform: scaleY(-1);
+  }
+  .custom.ex2 .column-reverse .axis .main-axis .arrow {
+    width: 2px;
+    height: 200px;
+  }
+
+  .custom.ex2 .column-reverse .axis .main-axis span {
+    display: block;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    transform: scaleX(-1);
+  }
+
+  .custom.ex2 .column-reverse .axis .main-axis .arrow::after {
+    top: auto;
+    bottom: 0;
+    left: -4px;
+    transform: rotate(135deg);
+  }
+
+  .custom.ex2 .column-reverse .axis .cross-axis {
+    flex-direction: column;
+    top: auto;
+    bottom: -8px;
+    left: 40px;
+    row-gap: 4px;
+  }
+
+  .custom.ex2 .column-reverse .axis .cross-axis .arrow {
+    width: 200px;
+    height: 2px;
+  }
+
+  .custom.ex2 .column-reverse .axis .cross-axis span {
+    writing-mode: initial;
+    text-orientation: sideways;
+    transform: initial;
+    order: 1;
+  }
+
+  .custom.ex2 .column-reverse .axis .cross-axis .arrow::after {
+    transform: rotate(45deg);
+    top: 0;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    margin: auto;
   }
 </style>
 <div class="custom ex2">
@@ -36,12 +269,24 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="item item1">1</div>
-    <div class="item item2">2</div>
-    <div class="item item3">3</div>
-    <div class="item item4">4</div>
-    <div class="item item5">5</div>
+  <div class="wrap row">
+    <div class="container">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="axis">
+        <div class="main-axis">
+          <span>주축 (main axis)</span>
+          <div class="arrow"></div>
+        </div>
+        <div class="cross-axis">
+          <span>교차축 (cross axis)</span>
+          <div class="arrow"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -49,10 +294,12 @@
   const custom2 = document.querySelector('.custom.ex2');
   const container2 = custom2.querySelector('.container');
   const radioBtn2 = custom2.querySelectorAll('input');
+  const wrap = custom2.querySelector('.wrap');
   radioBtn2.forEach((el) => {
     el.addEventListener('click', () => {
       const value = custom2.querySelector('input[name="flex-direction"]:checked').value;
       container2.style.flexDirection = value;
+      wrap.className = `wrap ${value}`;
     });
   });
 </script>
