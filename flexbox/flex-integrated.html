@@ -1,8 +1,18 @@
 <style>
   .custom.ex7 .container {
-    display: flex;
-    position: relative;
     height: 600px;
+    min-height: 600px;
+    background: transparent;
+    margin-bottom: 25px;
+  }
+  .custom.ex7 .container .wrap {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    background-color: skyblue;
   }
   .custom.ex7 .container .item {
     width: auto;
@@ -10,7 +20,7 @@
     line-height: normal;
     padding: 20px 30px;
   }
-  .custom.ex7 .container .resize {
+  .custom.ex7 .container .resize-col {
     position: absolute;
     top: 0;
     right: 0;
@@ -18,7 +28,15 @@
     height: 100%;
     background-color: #000;
   }
-  .custom.ex7 .container .resize::before {
+  .custom.ex7 .container .resize-row {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+  }
+  .custom.ex7 .container .resize-col::before {
     position: absolute;
     top: -27px;
     right: -5px;
@@ -27,8 +45,20 @@
     width: max-content;
     color: #874747;
   }
-  .custom.ex7 .container .resize:hover {
+  .custom.ex7 .container .resize-row::before {
+    position: absolute;
+    bottom: -27px;
+    left: -5px;
+    content: '↑ 드래그바';
+    z-index: -1;
+    width: max-content;
+    color: #874747;
+  }
+  .custom.ex7 .container .resize-col:hover {
     cursor: col-resize;
+  }
+  .custom.ex7 .container .resize-row:hover {
+    cursor: row-resize;
   }
   .custom.ex7 [type='radio']:not(:checked) + label {
     color: rgb(170, 170, 170);
@@ -187,45 +217,66 @@
   </div>
 
   <div class="container">
-    <div class="item item1">1</div>
-    <div class="item item2">2</div>
-    <div class="item item3">3</div>
-    <div class="item item4">4</div>
-    <div class="item item5">5</div>
-    <div class="resize"></div>
+    <div class="wrap">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="resize-col"></div>
+      <div class="resize-row"></div>
+    </div>
   </div>
 </div>
 
 <script>
   const custom7 = document.querySelector('.custom.ex7');
-  const container7 = custom7.querySelector('.container');
+  const container7 = custom7.querySelector('.container .wrap');
   const radioBtn7 = custom7.querySelectorAll('input');
 
-  const resize3 = custom7.querySelector('.resize');
-  let isTouch3 = false;
+  const resizeCol = custom7.querySelector('.resize-col');
+  const resizeRow = custom7.querySelector('.resize-row');
+
+  const RESIZE_COL = 'col';
+  const RESIZE_ROW = 'row';
+  const RESIZE_NONE = 'none';
+
+  let touchMode = RESIZE_NONE;
   let sX3 = 0;
   let cX3 = 0;
+  let sY3 = 0;
+  let cY3 = 0;
   let diffX3 = 0;
+  let diffY3 = 0;
 
   container7.addEventListener('mousedown', (e) => {
     e.preventDefault();
   });
 
-  resize3.addEventListener('mousedown', (e) => {
+  resizeCol.addEventListener('mousedown', (e) => {
     sX3 = e.clientX + diffX3;
-    isTouch3 = true;
+    touchMode = RESIZE_COL;
+  });
+  resizeRow.addEventListener('mousedown', (e) => {
+    sY3 = e.clientY - diffY3;
+    touchMode = RESIZE_ROW;
   });
 
   custom7.addEventListener('mousemove', (e) => {
-    if (isTouch3 === true) {
-      cX = e.clientX;
-      diffX3 = sX3 - cX;
+    if (touchMode === RESIZE_COL) {
+      cX3 = e.clientX;
+      diffX3 = sX3 - cX3;
       container7.style.width = `calc(100% - ${diffX3}px)`;
+    } else if (touchMode === RESIZE_ROW) {
+      cY3 = e.clientY;
+      diffY3 = cY3 - sY3;
+      container7.style.height = `calc(100% + ${diffY3}px)`;
+      console.log(diffY3);
     }
   });
 
   document.addEventListener('mouseup', (e) => {
-    isTouch3 = false;
+    touchMode = RESIZE_NONE;
   });
 
   radioBtn7.forEach((el) => {
