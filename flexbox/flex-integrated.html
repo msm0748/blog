@@ -312,6 +312,41 @@
     touchMode = RESIZE_NONE;
   });
 
+  container7.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+  });
+
+  resizeCol.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    sX3 = touch.clientX + diffX3;
+    touchMode = RESIZE_COL;
+  });
+
+  resizeRow.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    sY3 = touch.clientY - diffY3;
+    touchMode = RESIZE_ROW;
+  });
+
+  custom7.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    if (touchMode === RESIZE_COL) {
+      cX3 = touch.clientX;
+      diffX3 = sX3 - cX3;
+      if (diffX3 < 0) return (diffX3 = 0);
+      container7.style.width = `calc(100% - ${diffX3}px)`;
+    } else if (touchMode === RESIZE_ROW) {
+      cY3 = touch.clientY;
+      diffY3 = cY3 - sY3;
+      if (diffY3 > 0) return (diffY3 = 0);
+      container7.style.height = `calc(100% + ${diffY3}px)`;
+    }
+  });
+
+  document.addEventListener('touchend', (e) => {
+    touchMode = RESIZE_NONE;
+  });
+
   isSize.addEventListener('click', () => {
     container7.classList.toggle('size');
   });

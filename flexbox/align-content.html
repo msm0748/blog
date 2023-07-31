@@ -125,6 +125,30 @@
     isTouch2 = false;
   });
 
+  container6.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+  });
+
+  resize2.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    sX2 = touch.clientX + diffX2;
+    isTouch2 = true;
+  });
+
+  custom6.addEventListener('touchmove', (e) => {
+    if (isTouch2 === true) {
+      const touch = e.touches[0];
+      cX2 = touch.clientX;
+      diffX2 = sX2 - cX2;
+      if (diffX2 < 0) return (diffX2 = 0);
+      container6.style.width = `calc(100% - ${diffX2}px)`;
+    }
+  });
+
+  document.addEventListener('touchend', (e) => {
+    isTouch2 = false;
+  });
+
   radioBtn6.forEach((el) => {
     el.addEventListener('click', () => {
       const value = custom6.querySelector('input[name="align-content"]:checked').value;
