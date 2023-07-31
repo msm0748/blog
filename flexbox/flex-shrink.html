@@ -1,0 +1,112 @@
+<style>
+  .custom.ex11 {
+    padding-top: 30px;
+  }
+  .custom.ex11 .container {
+    display: flex;
+    position: relative;
+    max-width: 100%;
+    height: 300px;
+  }
+  .custom.ex11 .container .item {
+    flex-basis: 100px;
+    height: 80px;
+    line-height: 80px;
+  }
+  .custom.ex11 .container .item1 {
+    background-color: red;
+    flex-shrink: 1;
+  }
+  .custom.ex11 .container .item2 {
+    background-color: orange;
+    flex-shrink: 2;
+  }
+  .custom.ex11 .container .item3 {
+    background-color: yellow;
+    flex-shrink: 0;
+  }
+  .custom.ex11 .container .resize {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #000;
+  }
+  .custom.ex11 .container .resize::before {
+    position: absolute;
+    top: -27px;
+    right: -5px;
+    content: '드래그바 ↓';
+    z-index: -1;
+    width: max-content;
+    color: #874747;
+  }
+  .custom.ex11 .container .resize:hover {
+    cursor: col-resize;
+  }
+</style>
+<div class="custom ex11">
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="resize"></div>
+  </div>
+</div>
+
+<script>
+  const custom11 = document.querySelector('.custom.ex11');
+  const resize11 = custom11.querySelector('.resize');
+  const container11 = custom11.querySelector('.container');
+  let isTouch11 = false;
+  let sX11 = 0;
+  let cX11 = 0;
+  let diffX11 = 0;
+
+  container11.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+  });
+
+  resize11.addEventListener('mousedown', (e) => {
+    sX11 = e.clientX + diffX11;
+    isTouch11 = true;
+  });
+
+  custom11.addEventListener('mousemove', (e) => {
+    if (isTouch11 === true) {
+      cX11 = e.clientX;
+      diffX11 = sX11 - cX11;
+      if (diffX11 < 0) return (diffX11 = 0);
+      container11.style.width = `calc(100% - ${diffX11}px)`;
+    }
+  });
+
+  document.addEventListener('mouseup', (e) => {
+    isTouch11 = false;
+  });
+
+  container11.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+  });
+
+  resize11.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    sX11 = touch.clientX + diffX11;
+    isTouch11 = true;
+  });
+
+  custom11.addEventListener('touchmove', (e) => {
+    if (isTouch11 === true) {
+      const touch = e.touches[0];
+      cX11 = touch.clientX;
+      diffX11 = sX11 - cX11;
+      if (diffX11 < 0) return (diffX11 = 0);
+      container11.style.width = `calc(100% - ${diffX11}px)`;
+    }
+  });
+
+  document.addEventListener('touchend', (e) => {
+    isTouch11 = false;
+  });
+</script>
