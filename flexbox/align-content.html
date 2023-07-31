@@ -30,6 +30,11 @@
     width: auto;
     height: auto;
   }
+  @media (max-width: 640px) {
+    div.custom.ex6 .item {
+      padding: 20px;
+    }
+  }
 
   .custom.ex6 .style {
     position: relative;
@@ -96,8 +101,7 @@
   let isTouch2 = false;
   let sX2 = 0;
   let cX2 = 0;
-  let diffX2 = 450;
-  container6.style.width = `calc(100% - ${diffX2}px)`;
+  let diffX2 = 0;
 
   container6.addEventListener('mousedown', (e) => {
     e.preventDefault();
