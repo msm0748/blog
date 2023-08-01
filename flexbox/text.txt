@@ -1,10 +1,1 @@
-flex 속성은 flex-grow, flex-shrink, 그리고 flex-basis 속성을 한 줄에 축약해서 사용할 수 있도록 해주는 단축 속성
-
-
-
-flex-grow flex-shrink flex-basis;
-
-
-flex: 1 0 100px;
-
-/* flex-grow: 1, flex-shrink: 0, flex-basis: 100px; */
+align-items 설정을 상속
