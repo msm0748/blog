@@ -11,14 +11,14 @@
             "id": "66cbc767645f55c8",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": ".obsidian/workspace.json",
-                "bFile": ".obsidian/workspace.json",
-                "aRef": ""
+                "file": "pnpm 관리.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: workspace.json  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "pnpm 관리"
             }
           }
         ]
@@ -112,11 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "pnpm 관리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "나가는 링크"
+              "title": "pnpm 관리 의 나가는 링크"
             }
           },
           {
@@ -154,12 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "pnpm 관리.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "개요"
+              "title": "pnpm 관리 의 개요"
             }
           },
           {
@@ -177,7 +179,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 636.5
+    "width": 599.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,6 +196,8 @@
   },
   "active": "251066bf0965610f",
   "lastOpenFiles": [
+    "pm2 관리.md",
+    "pnpm 관리.md",
     "환영합니다!.md",
     "무제.base",
     "images",
