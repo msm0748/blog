@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "pnpm 관리.md",
+                "file": "서버 세팅/swap memory 설정 방법.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "pnpm 관리"
+              "title": "swap memory 설정 방법"
             }
           }
         ]
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "pnpm 관리.md",
+                "file": "서버 세팅/swap memory 설정 방법.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "pnpm 관리 의 나가는 링크"
+              "title": "swap memory 설정 방법 의 나가는 링크"
             }
           },
           {
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "pnpm 관리.md",
+                "file": "서버 세팅/swap memory 설정 방법.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "pnpm 관리 의 개요"
+              "title": "swap memory 설정 방법 의 개요"
             }
           },
           {
@@ -194,14 +194,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "251066bf0965610f",
+  "active": "66cbc767645f55c8",
   "lastOpenFiles": [
-    "pm2 관리.md",
+    "서버 세팅/pm2 관리.md",
+    "Excalidraw/Drawing 2026-04-13 11.46.50.excalidraw.md",
+    "서버 세팅/swap memory 설정 방법.md",
+    "GCP(Google Cloude Platform).md",
+    "서버 세팅",
     "pnpm 관리.md",
+    "ㅁㄴㅇㄹㄴㅁ.md",
     "환영합니다!.md",
     "무제.base",
     "images",
-    "Excalidraw/Drawing 2026-04-13 11.46.50.excalidraw.md",
     "2026-04-13.md",
     "Excalidraw",
     "무제.canvas"
